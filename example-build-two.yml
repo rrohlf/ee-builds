@@ -1,0 +1,22 @@
+---
+version: 3
+
+build_arg_defaults:
+  ANSIBLE_GALAXY_CLI_COLLECTION_OPTS: '--ignore-certs'
+
+images:
+  base_image:
+          name: ansible-automation-platform-24/ee-minimal-rhel8:latest
+
+dependencies:
+  python_interpreter:
+    package_system: python3.10
+    python_path: /usr/bin/python3.10
+
+  galaxy:
+    collections:
+      - infoblox.nios_modules
+      
+  python:
+    - infoblox-client
+    
